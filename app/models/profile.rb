@@ -1,4 +1,6 @@
 class Profile < ApplicationRecord
+  has_and_belongs_to_many :interests
+
   enum gender: [ :male, :female ]
 
   validates :name, presence: true, blank: false

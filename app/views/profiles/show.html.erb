@@ -28,8 +28,15 @@
 <br>
 <br>
 
+<p>
+  <strong>Interests:</strong>
+  <% @profile.interests.each do |interest| %>
+    <%= link_to interest.name, interest %>
+  <% end %>
+</p>
+
 <%= link_to 'See Friend Suggestions', suggestions_profile_friends_path(@profile) %>
 
-<h4>Friends</h4>
+<h2>Friends</h2>
 
 <%= render 'table', profiles: @profile.friends.take(1000), add_friend: false %>

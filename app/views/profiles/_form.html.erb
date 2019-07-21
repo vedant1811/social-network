@@ -39,6 +39,13 @@
     <i>This will be displayed as your Profile photo</i>
   </div>
 
+  <%= form.select(:interest_ids, Interest.all.collect {|t| [t.name, t.id]}, {}, {multiple: true, size: 10}) %>
+
+  <br>
+  <i>Hold ctrl or cmd key to select multiple</i>
+
+  <br>
+  <br>
   <div class="actions">
     <%= form.submit %>
   </div>

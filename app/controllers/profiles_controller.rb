@@ -49,6 +49,6 @@ private
 
   # Only allow a trusted parameter "white list" through.
   def profile_params
-    params.require(:profile).permit(:name, :dob, :gender, :location, :photo_url)
+    params.require(:profile).permit(:name, :dob, :gender, :location, :photo_url, interest_ids: [])
   end
 end

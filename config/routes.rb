@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :interests
   root to: redirect('/profiles')
 
   resources :profiles do

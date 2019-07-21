@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Interest:</strong>
+  <%= @interest.name %>
+</p>
+
+<%= link_to 'Edit', edit_interest_path(@interest) %> |
+<%= link_to 'Back', interests_path %>
+
+<h2>Profiles Interested</h2>
+
+<%= render 'profiles/table', profiles: @interest.profiles, add_friend: false %>
