@@ -7,3 +7,7 @@ one:
 two:
   profile_1: three
   profile_2: two
+
+three:
+  profile_1: two
+  profile_2: three

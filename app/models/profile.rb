@@ -26,6 +26,7 @@ class Profile < ApplicationRecord
 
 private
   def self.create_views
+    # UNION operator removes duplicates
     connection.execute <<-SQL
       CREATE OR REPLACE VIEW all_friendships AS
       SELECT profile_1_id AS profile_id, profile_2_id AS friend_id FROM friendships

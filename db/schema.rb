@@ -20,7 +20,9 @@ ActiveRecord::Schema.define(version: 2019_07_21_063308) do
     t.bigint "profile_2_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["profile_1_id", "profile_2_id"], name: "index_friendships_on_profile_1_id_and_profile_2_id", unique: true
     t.index ["profile_1_id"], name: "index_friendships_on_profile_1_id"
+    t.index ["profile_2_id", "profile_1_id"], name: "index_friendships_on_profile_2_id_and_profile_1_id", unique: true
     t.index ["profile_2_id"], name: "index_friendships_on_profile_2_id"
   end
 
