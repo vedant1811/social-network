@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: redirect('/profiles')
+
   resources :profiles do
     resources 'friends', only: [:create] do
       get 'suggestions', on: :collection

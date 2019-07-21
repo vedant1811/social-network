@@ -1,3 +1,4 @@
+<h4>Total: <%= @profile_count || profiles.count %></h4>
 <table>
   <thead>
     <tr>
@@ -6,22 +7,21 @@
       <th>Age</th>
       <th>Gender</th>
       <th>Location</th>
-      <th colspan="2"></th
+      <th></th
     </tr>
   </thead>
 
   <tbody>
-    <% profiles.each do |profile| %>
+    <% profiles.take(100).each do |profile| %>
       <tr>
         <td><%= image_tag profile.photo_url, size: 50, class: 'center-cropped' %></td>
-        <td><%= profile.name %></td>
+        <td><%= link_to profile.name, profile %></td>
         <td><%= profile.age %></td>
         <td><%= profile.gender %></td>
         <td><%= profile.location %></td>
         <% if add_friend %>
           <td><%= button_to 'Add friend', profile_friends_path(friend_id: profile) %></td>
         <% else %>
-          <td><%= link_to 'Show', profile %></td>
           <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
         <% end %>
       </tr>

@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
   # TODO: remove action:
   # GET /profiles
   def index
+    @profile_count = Profile.count
     @profiles = Profile.order(Arel.sql('random()')).limit(1000)
   end
 

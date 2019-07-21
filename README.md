@@ -8,12 +8,17 @@
  * **Connections:** Non-directional connection between 2 profiles. Stored as 2 ids
  in the database. Indexed for quick read and with uniqueness for data integrity.
 
+ Add friends by going to friends suggestions on the profile page.
+
  * **Interests**
 
  * **Admin Dashboard**:
 
     - Create profiles in bulk. 100 at a time, with max 20 connections each. Multiple such
     background jobs can be run at the same time.
+
+    But be careful to not run into Heroku database limits (and thereby get `500` errors)
+
     - Visiualize people and connections
 
 ## Non Features

@@ -9,7 +9,11 @@ class Profile < ApplicationRecord
   end
 
   def friend_suggestions
-    friends_of_friends.take(100)
+    suggestions = friends_of_friends
+    if suggestions.count < 100
+      suggestions += Profile.order(Arel.sql('random()')).limit(100 - suggestions.count)
+    end
+    suggestions
   end
 
   def friends
@@ -46,6 +50,7 @@ class Profile < ApplicationRecord
   end
 
 private
+  # TODO: Put this in a migration rather than running every time
   def self.create_sql_views
     # UNION operator removes duplicates
     connection.execute <<-SQL
