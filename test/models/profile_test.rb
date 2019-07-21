@@ -7,4 +7,10 @@ class ProfileTest < ActiveSupport::TestCase
     profile.gender = :male
     profile.save!
   end
+
+  # TODO:
+  # test 'destroys profile' do
+  #   profile = profiles(:one)
+  #   profile.destroy!
+  # end
 end

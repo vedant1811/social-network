@@ -5,11 +5,18 @@ one:
   dob: 2019-07-20
   gender: male
   location: MyText
-  photo_url: MyText
+  photo_url: https://homepages.cae.wisc.edu/~ece533/images/barbara.png
 
 two:
-  name: MyText
+  name: MyText 2
   dob: 2019-07-20
   gender: female
   location: MyText
-  photo_url: MyText
+  photo_url: https://homepages.cae.wisc.edu/~ece533/images/barbara.png
+
+three:
+  name: MyText 3
+  dob: 2019-07-20
+  gender: female
+  location: MyText
+  photo_url: https://homepages.cae.wisc.edu/~ece533/images/barbara.png

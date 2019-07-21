@@ -37,12 +37,4 @@ class ProfilesControllerTest < ActionDispatch::IntegrationTest
     patch profile_url(@profile), params: { profile: { dob: @profile.dob, gender: @profile.gender, location: @profile.location, name: @profile.name, photo_url: @profile.photo_url } }
     assert_redirected_to profile_url(@profile)
   end
-
-  test "should destroy profile" do
-    assert_difference('Profile.count', -1) do
-      delete profile_url(@profile)
-    end
-
-    assert_redirected_to profiles_url
-  end
 end

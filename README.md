@@ -11,8 +11,8 @@
 
  * **Admin Dashboard**:
 
-  - Create profiles in bulk. 10k at a time.
-  - Visiualize people and connections
+    - Create profiles in bulk. 10k at a time.
+    - Visiualize people and connections
 
 ## Non Features
 

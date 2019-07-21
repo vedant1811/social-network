@@ -40,13 +40,6 @@ class ProfilesController < ApplicationController
     end
   end
 
-  # TODO: remove action:
-  # DELETE /profiles/1
-  def destroy
-    @profile.destroy
-    redirect_to profiles_url, notice: 'Profile was successfully destroyed.'
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
