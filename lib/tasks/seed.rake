@@ -12,7 +12,7 @@ namespace :seed do
 
   desc 'Create 10 interests, and 100 profiles with friendships and interests'
   task profiles: :interests do
-    100.times do
+    500.times do
       print '*'
       profile = Profile.new
       profile.name = Faker::Name.name

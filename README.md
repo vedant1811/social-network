@@ -1,9 +1,11 @@
 # Simple Social Network
 
+[Link to app](https://ved-social-network.herokuapp.com)
+
 
 ## Features
 
- * Profile
+ * **Profile:** Create, update and list profiles.
 
  * **Friends:** Non-directional connection between 2 profiles. Stored as 2 ids
  in the database. Indexed for quick read and with uniqueness for data integrity.
@@ -17,14 +19,10 @@
 
  * **Interests:** List, Create, Update, Delete interests. Associate profiles with multiple interests
 
- * **Admin Dashboard**:
+ * **Seed Data:** Create profiles in bulk. 500 at a time, with max 20 connections each. Multiple such
+background jobs can be run at the same time. Each takes ~30 seconds to run.
 
-    - Create profiles in bulk. 100 at a time, with max 20 connections each. Multiple such
-    background jobs can be run at the same time.
-
-    But be careful to not run into Heroku database limits (and thereby get `500` errors)
-
-    - Visiualize people and connections
+But be careful to not run into Heroku database limits (and thereby get `500` errors)
 
 ## Non Features
 
@@ -32,7 +30,7 @@
 [(ref)](https://help.heroku.com/K1PPS2WM/why-are-my-file-uploads-missing-deleted).
 Currently, users can only enter URLs of photos uploaded somewhere else on the internet.
 
-## Installation and Usage
+## Local Installation and Usage
 
 Requires `ruby`, `bundler` and `postgres` to be installed.
 
@@ -76,5 +74,10 @@ rails test
 
 Deployed on **Heroku**, on the dev plan. This is limited 10k entries in the database (including connections and interests)
 
-Uses Heroku [caching](https://devcenter.heroku.com/articles/building-a-rails-3-application-with-memcache)
-and [background jobs](https://devcenter.heroku.com/articles/background-jobs-queueing)
+[Link to app](https://ved-social-network.herokuapp.com)
+
+You can run the `seed:profiles` script in the heroku dashboard:
+
+  1. Select the app
+  1. More -> Run Console
+  1. Run `rails seed:profiles`
