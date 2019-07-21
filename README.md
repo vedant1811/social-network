@@ -22,6 +22,46 @@
 [(ref)](https://help.heroku.com/K1PPS2WM/why-are-my-file-uploads-missing-deleted).
 Currently, users can only enter URLs of photos uploaded somewhere else on the internet.
 
+## Installation and Usage
+
+Requires `ruby`, `bundler` and `postgres` to be installed.
+
+Then, just follow standard rails installation:
+
+```
+git clone git@github.com:vedant1811/social-network.git
+cd social-network
+bundle install
+```
+
+Create the database:
+```
+$ sudo -u postgres psql
+postgres=# create user rails with password 'rails';
+CREATE ROLE
+postgres=# alter role rails superuser createrole createdb replication;
+ALTER ROLE
+<CTRL+D to exit cli>
+
+$ rails db:create
+$ rails db:migrate
+```
+
+Create seed data:
+```
+rails profiles:seed
+```
+
+Run the server locally:
+```
+rails s
+```
+
+Run all the tests:
+```
+rails test
+```
+
 ## Deployment
 
 Deployed on **Heroku**, on the dev plan. This is limited 10k entries in the database (including connections and interests)
