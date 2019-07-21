@@ -40,14 +40,14 @@ class ProfilesController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_profile
-      @profile = Profile.find(params[:id])
-    end
+private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_profile
+    @profile = Profile.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def profile_params
-      params.require(:profile).permit(:name, :dob, :gender, :location, :photo_url)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def profile_params
+    params.require(:profile).permit(:name, :dob, :gender, :location, :photo_url)
+  end
 end

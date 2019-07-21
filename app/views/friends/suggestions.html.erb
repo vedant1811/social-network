@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @profile.photo_url, size: 200, class: 'center-cropped' %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @profile.name %>
+</p>
+
+<%= link_to 'Back To Profile', @profile %>
+
+<br>
+<br>
+
+<h4>Friend Suggestions</h4>
+
+<%= render 'profiles/table', profiles: @profile.friend_suggestions, add_friend: true %>

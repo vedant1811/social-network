@@ -8,6 +8,9 @@ class Profile < ApplicationRecord
     dob && ((Time.zone.now - dob.to_time) / 1.year.seconds).floor
   end
 
+  def friend_suggestions
+    friends_of_friends.take(100)
+  end
 
   def friends
     Profile.create_sql_views

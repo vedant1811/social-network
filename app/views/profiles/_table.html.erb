@@ -18,8 +18,12 @@
         <td><%= profile.age %></td>
         <td><%= profile.gender %></td>
         <td><%= profile.location %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+        <% if add_friend %>
+          <td><%= button_to 'Add friend', profile_friends_path(friend_id: profile) %></td>
+        <% else %>
+          <td><%= link_to 'Show', profile %></td>
+          <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
