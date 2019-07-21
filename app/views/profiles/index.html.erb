@@ -7,31 +7,4 @@
 <br>
 <br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Dob</th>
-      <th>Gender</th>
-      <th>Location</th>
-      <th>Photo url</th>
-      <th colspan="2"></th
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @profiles.each do |profile| %>
-      <tr>
-        <td><%= profile.name %></td>
-        <td><%= profile.dob %></td>
-        <td><%= profile.gender %></td>
-        <td><%= profile.location %></td>
-        <td><%= profile.photo_url %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+<%= render 'table', profiles: @profiles %>

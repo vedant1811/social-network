@@ -8,7 +8,7 @@ namespace :profiles do
       profile.dob = Faker::Date.birthday
       profile.location = Faker::Address.city
       profile.gender = Profile.genders.keys.sample
-      profile.photo_url = Faker::LoremPixel.image
+      profile.photo_url = random_url
       profile.save!
 
       rand(20).times do
@@ -22,5 +22,9 @@ namespace :profiles do
       end
     end
     puts
+  end
+
+  def random_url
+    "https://picsum.photos/id/#{rand 1000}/200/200"
   end
 end

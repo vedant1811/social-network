@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @profile.photo_url, class: 'center-cropped' %>
+<%= image_tag @profile.photo_url, size: 200, class: 'center-cropped' %>
 
 <p>
   <strong>Name:</strong>
@@ -24,3 +24,8 @@
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>
+
+
+<h4>Friends</h4>
+
+<%= render 'table', profiles: @profile.friends.take(1000) %>
