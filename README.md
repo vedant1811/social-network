@@ -5,12 +5,17 @@
 
  * Profile
 
- * **Connections:** Non-directional connection between 2 profiles. Stored as 2 ids
+ * **Friends:** Non-directional connection between 2 profiles. Stored as 2 ids
  in the database. Indexed for quick read and with uniqueness for data integrity.
 
  Add friends by going to friends suggestions on the profile page.
 
- * **Interests**
+ * **Friend suggestions:** List of suggestions of new friends for each profile. Add
+ new friends using this page
+
+ Currently its a list of friends of friends. Later, sort by number of mutual friends and interests
+
+ * **Interests:** List, Create, Update, Delete interests. Associate profiles with multiple interests
 
  * **Admin Dashboard**:
 
