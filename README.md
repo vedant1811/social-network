@@ -5,7 +5,8 @@
 
 ## Features
 
- * **Profile:** Create, update and list profiles.
+ * **Profile:** Create, update and list profiles. The profile list is randomly generated
+ on every page load. Reloading the page will (probably) load new profiles.
 
  * **Friends:** Non-directional connection between 2 profiles. Stored as 2 ids
  in the database. Indexed for quick read and with uniqueness for data integrity.
@@ -13,16 +14,22 @@
  Add friends by going to friends suggestions on the profile page.
 
  * **Friend suggestions:** List of suggestions of new friends for each profile. Add
- new friends using this page
+ new friends using this page. Interesting to see that whenever you add a new friend, the friend suggestions count increases
+ by 10-20.
 
  Currently its a list of friends of friends. Later, sort by number of mutual friends and interests
 
  * **Interests:** List, Create, Update, Delete interests. Associate profiles with multiple interests
 
- * **Seed Data:** Create profiles in bulk. 500 at a time, with max 20 connections each. Multiple such
-background jobs can be run at the same time. Each takes ~30 seconds to run.
+ * **Seed Data:** Create profiles, interests and friendships in bulk. In a single run:
 
-But be careful to not run into Heroku database limits (and thereby get `500` errors)
+     - 10 interests, 10k profiles with random friendships and interests are created.
+     - ~260k entries created with 20 parallel database connections.
+     - Takes ~4 minutes to run locally, ~18min on Heroku. (This can be optimized by using SQL bulk inserts)
+
+This can be run from the heroku dashboard. See [Deployment](#deployment) section at the bottom
+
+But be careful to not run into Heroku database limits (and thereby get `500` errors).
 
 ## Non Features
 
@@ -76,8 +83,28 @@ Deployed on **Heroku**, on the dev plan. This is limited 10k entries in the data
 
 [Link to app](https://ved-social-network.herokuapp.com)
 
-You can run the `seed:profiles` script in the heroku dashboard:
+### Seed the database
+
+#### Heroku CLI (Recommended)
+
+[Install Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+
+```
+heroku --version
+heroku login
+...
+heroku run -a ved-social-network rails seed:profiles
+```
+
+#### Heroku dashboard
+
+You can run the `seed:profiles` script in the heroku dashboard (but sometimes it fails halfway in the browser):
 
   1. Select the app
   1. More -> Run Console
-  1. Run `rails seed:profiles`
+
+Or, goto [this link](https://dashboard.heroku.com/apps/ved-social-network?web-console=ved-social-network).
+
+Then:
+
+  * Run `rails seed:profiles`
